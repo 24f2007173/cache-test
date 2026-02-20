@@ -1,0 +1,22 @@
+name: Cache Test
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: prime-cache-9255727
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache
+          key: cache-9255727
+
+      - name: Done
+        run: echo "Finished"
